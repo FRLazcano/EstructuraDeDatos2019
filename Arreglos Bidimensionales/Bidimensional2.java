@@ -14,13 +14,43 @@ public class Bidimensional2{
     return matriz;
   }
 
-  public void setMatriz(int[][] matriz){
+  public void setMatriz(int[][] matriz, String str){
+
+    String s=" ";
+    int renglones=matriz.length;
+    int columnas=matriz[0].length;
     
+    for(int i=0; i<renglones; i++){
+      for(int j=0; j<columnas; j++){
+        s="Introduzca el valor de "+str+" en ["+i+"]["+j+"]";
+        matriz[i][j]  =Integer.parseInt(JOptionPane.showInputDialog(s));
+      }
+    }
+  }
+
+  public void showData(int[][] matriz, String str){
+    String s="Los valores de "+str+" son: \n";
+    int renglones=matriz.length;
+    int columnas=matriz[0].length;
+
+    for(int i=0; i<renglones; i++){
+      for(int j=0; j<columnas; j++){
+        s+=" ["+i+"]["+j+"]="+matriz[i][j]+"  ";
+      }
+      s+="\n";
+    }
+    JOptionPane.showMessageDialog(null,s);
   }
 
   public Bidimensional2(){
-    matrizA=newMatriz("A");
-    matrizA=newMatriz("B");
+    this.matrizA=newMatriz("A");
+    this.matrizB=newMatriz("B");
+
+    this.setMatriz(matrizA, "A");
+    this.setMatriz(matrizB, "B");
+
+    this.showData(matrizA,"A");
+    this.showData(matrizB,"B");
   }
 
   public static void main(String[] args) {
