@@ -1,6 +1,6 @@
 import javax.swing.JOptionPane;
 
-public class Bidimensional2{
+public class Bidimensional3{
 
   int[][] matrizA;
   int[][] matrizB;
@@ -43,28 +43,27 @@ public class Bidimensional2{
     JOptionPane.showMessageDialog(null,s);
   }
 
-  public void suma(){
+  public void multi(){
 
-    int renglones=matrizA.length;
-    int columnas=matrizA[0].length;
+    this.matrizC=new int[matrizA.length][matrizA.length];
 
-    this.matrizC=new int[matrizA.length][matrizA[0].length];
+    int renglones=matrizC.length;
+    int columnas=matrizC[0].length;
 
     for(int i=0; i<renglones; i++){
       for(int j=0; j<columnas; j++){
-        matrizC[i][j]=matrizA[i][j]+matrizB[i][j];
       }
     }
   }
 
-  public Bidimensional2(){
+  public Bidimensional3(){
     this.matrizA=newMatriz("A");
-    this.matrizB=new int[matrizA.length][matrizA[0].length];
+    this.matrizB=new int[matrizA[0].length][matrizA.length];
 
     this.setMatriz(matrizA, "A");
     this.setMatriz(matrizB, "B");
 
-    this.suma();
+    this.multi();
 
     this.showData(matrizA,"A");
     this.showData(matrizB,"B");
@@ -72,6 +71,6 @@ public class Bidimensional2{
   }
 
   public static void main(String[] args) {
-    Bidimensional2 obj=new Bidimensional2();
+    Bidimensional3 obj=new Bidimensional3();
   }
 }
